@@ -1,1 +1,2 @@
-# node-file-manager
+#File Manager
+This task implement File Manager using Node.js APIs.
