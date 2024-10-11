@@ -1,23 +1,24 @@
 {
-  "name": "file-manager",
-  "version": "1.0.0",
-  "description": "implement file manager using Node.js APIs",
+  "name": "nodejs-filemanager",
+  "version": "2.0.0",
+  "description": "File Manager CLI implemented by using pure Node.js APIs > Node.js version 22.x.x (used ^22.9.0)",
+  "main": "index.js",
   "engines": {
     "node": ">=20.0.0"
   },
   "type": "module",
-  "main": "index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Nesmeian/node-file-manager.git"
-  },
-  "author": "Nesmeian",
+  "keywords": [
+    "cli",
+    "filemanager",
+    "nodejs"
+  ],
+  "author": "solidados",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Nesmeian/node-file-manager/issues"
+    "url": "https://github.com/solidados/node-nodejs-filemanager/issues"
   },
-  "homepage": "https://github.com/Nesmeian/node-file-manager#readme"
+  "homepage": "https://github.com/solidados/node-nodejs-filemanager#readme"
 }
