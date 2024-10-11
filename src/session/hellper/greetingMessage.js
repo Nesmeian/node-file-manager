@@ -1,7 +1,7 @@
 import { createInterface } from "readline";
 import { processExit } from "./processExit.js";
 import { showCurrentDir } from "./currentDirShow.js";
-function greetingMessage(userArg, userInitialization, currentDir) {
+function greetingMessage(userArg, userInitialization) {
   const userName = userArg
     .substring(userInitialization.length)
     .split("_")
@@ -16,11 +16,11 @@ function greetingMessage(userArg, userInitialization, currentDir) {
     output: process.stdout,
   });
   input.on("line", (message) => {
-    showCurrentDir(currentDir);
+    showCurrentDir();
     if (message === ".exit") {
       process.exit();
     }
-    processExit(userName, currentDir);
+    processExit(userName);
     return message + "\n";
   });
 }

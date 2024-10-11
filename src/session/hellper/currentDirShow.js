@@ -1,4 +1,6 @@
-function showCurrentDir(currentDir) {
-  process.stdout.write(`You are currently in ${currentDir}\n`);
+import os from "os";
+function showCurrentDir() {
+  const homeDir = os.homedir;
+  process.stdout.write(`You are currently in ${homeDir}\n`);
 }
 export { showCurrentDir };
