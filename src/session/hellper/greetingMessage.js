@@ -1,6 +1,10 @@
 import { createInterface } from "readline";
 import { processExit } from "./processExit.js";
 import { showCurrentDir } from "./currentDirShow.js";
+const command = {
+  up: "up",
+  jack: "asfasfasf",
+};
 function greetingMessage(userArg, userInitialization) {
   const userName = userArg
     .substring(userInitialization.length)
@@ -14,14 +18,19 @@ function greetingMessage(userArg, userInitialization) {
   const input = createInterface({
     input: process.stdin,
     output: process.stdout,
+    prompt: "-",
   });
+  input.prompt();
   input.on("line", (message) => {
     showCurrentDir();
-    if (message === ".exit") {
+    if (command[message]) {
+      console.log(command[message] + "\n");
+    } else if (message === ".exit") {
       process.exit();
+    } else {
+      processExit(userName);
+      console.log("Invalid input");
     }
-    processExit(userName);
-    return message + "\n";
   });
 }
 export { greetingMessage };
