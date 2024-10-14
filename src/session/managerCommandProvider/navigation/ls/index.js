@@ -18,6 +18,7 @@ async function list(currentDir) {
       })
       .concat(
         file.sort().map((name) => {
+          name = truncateFileName(name);
           return {
             Name: name,
             Type: "file",
@@ -29,4 +30,15 @@ async function list(currentDir) {
     console.log("Operation failed");
   }
 }
+
+function truncateFileName(name) {
+  const ext = path.extname(name);
+  const base = path.basename(name, ext);
+  if (base.length > 35) {
+    return `${base.substring(0, 35)}...${ext}`;
+  } else {
+    return name;
+  }
+}
+
 export { list };
