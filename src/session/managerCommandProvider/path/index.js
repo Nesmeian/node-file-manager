@@ -1,5 +1,4 @@
-import os from "os";
-let currentDir = os.homedir();
+let currentDir = process.cwd();
 function setCurrentDir(newDir) {
   currentDir = newDir;
 }
