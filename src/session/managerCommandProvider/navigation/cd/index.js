@@ -1,4 +1,6 @@
-import { showCurrentDir } from "../../../hellper/currentDirShow/index.js";
-import { currentDir } from "../../managerCommandProvider/path/index.js";
+import { setCurrentDir } from "../../path/index.js";
 
-showCurrentDir(currentDir);
+async function choseDir(currentDir) {
+  setCurrentDir("asfa");
+}
+export { choseDir };

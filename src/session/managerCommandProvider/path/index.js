@@ -1,4 +1,10 @@
 import os from "os";
-const homeDirectory = os.homedir();
-let currentDir = homeDirectory;
-export { currentDir };
+let currentDir = os.homedir();
+function setCurrentDir(newDir) {
+  currentDir = newDir;
+}
+
+function getCurrentDir() {
+  return currentDir;
+}
+export { setCurrentDir, getCurrentDir };

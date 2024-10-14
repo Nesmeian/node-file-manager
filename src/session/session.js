@@ -1,8 +1,8 @@
 import { managerCommand } from "./managerCommandProvider/managerCommand/index.js";
 import { createInterface } from "readline";
-import { currentDir } from "./managerCommandProvider/path/index.js";
 import { showCurrentDir } from "../hellper/currentDirShow/index.js";
 import { processExit } from "../hellper/processExit/index.js";
+import { getCurrentDir } from "./managerCommandProvider/path/index.js";
 async function session() {
   const args = process.argv.slice(2);
   const userInitializationArg = "--username=";
@@ -23,11 +23,10 @@ async function session() {
     output: process.stdout,
     prompt: "-",
   });
-  await showCurrentDir(currentDir);
+  await showCurrentDir(getCurrentDir());
   input.prompt();
   input.on("SIGINT", () => processExit(userName, true));
   input.on("line", async (message) => {
-    showCurrentDir();
     if (managerCommand[message]) {
       await managerCommand[message]();
     } else if (message === ".exit") {
@@ -35,6 +34,7 @@ async function session() {
     } else {
       console.log("Invalid input");
     }
+    await showCurrentDir(getCurrentDir());
     input.prompt();
   });
 }
