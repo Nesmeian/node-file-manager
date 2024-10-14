@@ -7,6 +7,7 @@ import { choseDir } from "../navigation/cd/index.js";
 import { list } from "../navigation/ls/index.js";
 import { up } from "../navigation/up/index.js";
 import { getCurrentDir } from "../path/index.js";
+import { deleteFile } from "../basicCommand/rm/index.js";
 const managerCommand = {
   ls: () => list(getCurrentDir()),
   up: () => up(getCurrentDir()),
@@ -19,5 +20,6 @@ const managerCommand = {
     copyFile(getCurrentDir(), fileName, copyFileName),
   mv: (fileName, moveFileName) =>
     moveFile(getCurrentDir(), fileName, moveFileName),
+  rm: (file) => deleteFile(getCurrentDir(), file),
 };
 export { managerCommand };
