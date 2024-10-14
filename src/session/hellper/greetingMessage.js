@@ -20,17 +20,21 @@ function greetingMessage(userArg, userInitialization) {
     output: process.stdout,
     prompt: "-",
   });
+
+  showCurrentDir();
   input.prompt();
+  input.on("SIGINT", () => processExit(userName, true));
   input.on("line", (message) => {
     showCurrentDir();
     if (command[message]) {
-      console.log(command[message] + "\n");
+      console.log(command[message]);
     } else if (message === ".exit") {
-      process.exit();
-    } else {
       processExit(userName);
+    } else {
       console.log("Invalid input");
     }
+    input.prompt();
   });
 }
+
 export { greetingMessage };
