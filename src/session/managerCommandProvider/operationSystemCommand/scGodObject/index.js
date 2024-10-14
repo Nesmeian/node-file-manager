@@ -1,9 +1,13 @@
 import { checkCpus } from "../cpus/index.js";
 import { showEOl } from "../EOL/index.js";
+import { getHomeDir } from "../homedir/index.js";
+import { getUserName } from "../username/index.js";
 
 const osCommands = {
   "--cpus": checkCpus,
   "--EOL": showEOl,
+  "--homedir": getHomeDir,
+  "--username": getUserName,
 };
 function handleOsCommand(option) {
   const command = osCommands[option];
