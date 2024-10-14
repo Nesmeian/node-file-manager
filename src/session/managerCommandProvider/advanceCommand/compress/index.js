@@ -8,18 +8,17 @@ async function compress(currentDir, [file, compressFile]) {
 
   try {
     await fs.promises.access(filePath, fs.constants.F_OK);
-  } catch (err) {
-    console.log("Operation Failed");
+    const compressFileStream = fs.createReadStream(filePath);
+    const compressFileDestinatinoStream = fs.createWriteStream(compressPath);
+
+    compressFileStream.pipe(gzip).pipe(compressFileDestinatinoStream);
+    compressFileDestinatinoStream.on("finish", async (err) => {
+      console.log("Operation completed");
+      await fs.promises.unlink(filePath);
+    });
+  } catch {
+    console.log("Operation failed");
   }
-
-  const compressFileStream = fs.createReadStream(filePath);
-  const compressFileDestinatinoStream = fs.createWriteStream(compressPath);
-
-  compressFileStream.pipe(gzip).pipe(compressFileDestinatinoStream);
-  compressFileDestinatinoStream.on("finish", async (err) => {
-    console.log("Operation completed");
-    await fs.promises.unlink(filePath);
-  });
 }
 
 export { compress };

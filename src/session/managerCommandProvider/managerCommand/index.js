@@ -11,6 +11,7 @@ import { deleteFile } from "../basicCommand/rm/index.js";
 import { handleOsCommand } from "../operationSystemCommand/scGodObject/index.js";
 import { calculateHash } from "../advanceCommand/hash/index.js";
 import { compress } from "../advanceCommand/compress/index.js";
+import { decompress } from "../advanceCommand/decompress/index.js";
 const managerCommand = {
   ls: () => list(getCurrentDir()),
   up: () => up(getCurrentDir()),
@@ -27,6 +28,8 @@ const managerCommand = {
   hash: (file) => calculateHash(getCurrentDir(), file),
   compress: (file, compressFile) =>
     compress(getCurrentDir(), file, compressFile),
+  decompress: (file, decompressFile) =>
+    decompress(getCurrentDir(), file, decompressFile),
   //cpus
   os: (option) => handleOsCommand(option),
 };
