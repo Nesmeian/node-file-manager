@@ -1,6 +1,7 @@
 import { addFile } from "../basicCommand/add/index.js";
 import { readFile } from "../basicCommand/cat/index.js";
 import { renameFile } from "../basicCommand/rn/index.js";
+import { copyFile } from "../basicCommand/cp/index.js";
 import { choseDir } from "../navigation/cd/index.js";
 import { list } from "../navigation/ls/index.js";
 import { up } from "../navigation/up/index.js";
@@ -13,5 +14,7 @@ const managerCommand = {
   add: (file) => addFile(getCurrentDir(), file),
   rn: (fileName, newFileName) =>
     renameFile(getCurrentDir(), fileName, newFileName),
+  cp: (fileName, copyFileName) =>
+    copyFile(getCurrentDir(), fileName, copyFileName),
 };
 export { managerCommand };

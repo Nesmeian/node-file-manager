@@ -1,7 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
 async function renameFile(currentDir, [file, renameFile]) {
-  // try {
   console.log(file, renameFile);
   const filePath = path.join(currentDir, file);
   const renameFilePath = path.join(currentDir, renameFile);
