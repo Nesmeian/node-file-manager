@@ -10,6 +10,7 @@ import { getCurrentDir } from "../path/index.js";
 import { deleteFile } from "../basicCommand/rm/index.js";
 import { handleOsCommand } from "../operationSystemCommand/scGodObject/index.js";
 import { calculateHash } from "../advanceCommand/hash/index.js";
+import { compress } from "../advanceCommand/compress/index.js";
 const managerCommand = {
   ls: () => list(getCurrentDir()),
   up: () => up(getCurrentDir()),
@@ -24,6 +25,8 @@ const managerCommand = {
     moveFile(getCurrentDir(), fileName, moveFileName),
   rm: (file) => deleteFile(getCurrentDir(), file),
   hash: (file) => calculateHash(getCurrentDir(), file),
+  compress: (file, compressFile) =>
+    compress(getCurrentDir(), file, compressFile),
   //cpus
   os: (option) => handleOsCommand(option),
 };
