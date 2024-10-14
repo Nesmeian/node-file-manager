@@ -1,3 +1,4 @@
+import { showArchitecture } from "../architecture/index.js";
 import { checkCpus } from "../cpus/index.js";
 import { showEOl } from "../EOL/index.js";
 import { getHomeDir } from "../homedir/index.js";
@@ -8,6 +9,7 @@ const osCommands = {
   "--EOL": showEOl,
   "--homedir": getHomeDir,
   "--username": getUserName,
+  "--architecture": showArchitecture,
 };
 function handleOsCommand(option) {
   const command = osCommands[option];
