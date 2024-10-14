@@ -27,9 +27,11 @@ async function session() {
   input.prompt();
   input.on("SIGINT", () => processExit(userName, true));
   input.on("line", async (message) => {
-    if (managerCommand[message]) {
-      await managerCommand[message]();
-    } else if (message === ".exit") {
+    let command = message.split(" ")[0];
+    let purpose = message.split(" ")[1];
+    if (managerCommand[command]) {
+      await managerCommand[command](purpose);
+    } else if (command === ".exit") {
       processExit(userName);
     } else {
       console.log("Invalid input");
