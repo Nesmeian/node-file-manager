@@ -1,6 +1,6 @@
 import path from "path";
 import fs from "fs/promises";
-async function addFile(currentDir, file) {
+async function addFile(currentDir, [file]) {
   const createFilePath = path.join(currentDir, file);
   const existPath = await fs
     .stat(createFilePath)

@@ -28,7 +28,7 @@ async function session() {
   input.on("SIGINT", () => processExit(userName, true));
   input.on("line", async (message) => {
     let command = message.split(" ")[0];
-    let purpose = message.split(" ")[1];
+    let purpose = message.split(" ").slice(1);
     if (managerCommand[command]) {
       await managerCommand[command](purpose);
     } else if (command === ".exit") {

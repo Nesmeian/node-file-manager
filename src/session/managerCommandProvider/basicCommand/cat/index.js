@@ -1,7 +1,7 @@
 import path from "path";
 import { getCurrentDir } from "../../path/index.js";
 import fs from "fs";
-async function readFile(file) {
+async function readFile([file]) {
   try {
     await fs.promises.stat(path.join(getCurrentDir(), file));
     const read = fs.createReadStream(path.join(getCurrentDir(), file));
